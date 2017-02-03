@@ -6,34 +6,34 @@ from music_api.models import Album, Artist, Song, Genre
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups', )
+        fields = ('url', 'id', 'username', 'email', 'groups', )
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name', )
+        fields = ('url', 'id', 'name', )
 
 
 class AlbumSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Album 
-        fields = ('album_title', 'release_date', 'album_length', 'label', 'artist_id', 'genre_id', )
+        fields = ('url', 'id', 'album_title', 'release_date', 'album_length', 'label', 'artist', 'genre', )
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Artist
-        fields = ('artist_name', 'year_established', )
+        fields = ('url', 'id', 'artist_name', 'year_established', )
 
 
 class SongSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Song
-        fields = ('song_title', 'song_length', 'release_date', 'genre_id', 'artist_id', 'album_id', )
+        fields = ('url', 'id', 'song_title', 'song_length', 'release_date', 'genre', 'artist', 'album', )
 
 
 class GenreSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Genre
-        fields = ('genre_type', )
+        fields = ('url', 'id', 'genre_type', )
